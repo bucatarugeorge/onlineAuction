@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_description">Product description</label>
             <div class="col-md-4">
-                <input id="product_description" th:field="*{description}"  placeholder="Product description"
+                <input id="product_description" th:field="*{description}" placeholder="Product description"
                        class="form-control input-md"
                        required="" type="text">
             </div>
@@ -40,18 +40,17 @@
                        class="form-control input-md"
                        required="" type="number">
             </div>
+            <label th:if="${#fields.hasErrors('startBiddingPrice')}" th:class="'error'" th:errors="*{startBiddingPrice}"
+                   class="col-lg-4 control-label" style="color:red;"></label>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="product_category">Product category</label>
             <div class="col-md-4">
-                <select id="product_category" class="form-control">
-                    <option value="" selected disabled hidden>Choose here</option>
-                    <option>Electronics</option>
-                    <option>Auto</option>
-                    <option>Books</option>
-                    <option>Games</option>
+                <select name="color" id="product_category" th:field="*{category}">
+                    <option th:each="colorOpt : ${T(com.sda.onlineAuction.model.Category).values()}"
+                            th:value="${colorOpt.name()}" th:text="${colorOpt.name()}"></option>
                 </select>
             </div>
         </div>
