@@ -1,0 +1,15 @@
+.error > p{
+color: red;
+
+}
+form.addItemForm,
+div.homePage,
+form.loginPage,
+form.registerForm{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+div.homePage{
+    width: auto;
+}
