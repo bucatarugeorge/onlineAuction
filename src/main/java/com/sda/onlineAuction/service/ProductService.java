@@ -26,15 +26,6 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public List<ProductDto> getAllProductDtos(String email) {
-        List<Product> products = productRepository.findAll();
-        List<ProductDto> result = new ArrayList<>();
-        for (Product product : products) {
-            ProductDto productDto = productMapper.map(product, email);
-            result.add(productDto);
-        }
-        return result;
-    }
 
     public List<ProductDto> getAllActiveProducts(String email) {
         List<Product> activeProducts = productRepository.findAllByEndDateTimeAfter(LocalDateTime.now());

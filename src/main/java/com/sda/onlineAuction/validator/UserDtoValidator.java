@@ -35,7 +35,6 @@ public class UserDtoValidator {
     private void validateEmail(UserDto userDto, BindingResult bindingResult) {
         String email = userDto.getEmail();
         String regex = "^(.+)@(.+)$";
-        // ^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         Optional<User> optionalUser = userRepository.findByEmail(email);
